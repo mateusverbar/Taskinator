@@ -1,7 +1,7 @@
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
-var createTaskHandler = function(event) {
+var taskFormHandler = function(event) {
 
     event.preventDefault();
 
@@ -9,20 +9,31 @@ var createTaskHandler = function(event) {
 
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
 
+    var taskDataObj = {
+        name: taskNameInput,
+        type: taskTypeInput
+    };
+
+    createTaskEl(taskDataObj);
+
+};
+
+var createTaskEl = function(taskDataObj) {
+
     var listItemEl = document.createElement("li"); //creates li in ul
     listItemEl.className = "task-item"; 
 
     var taskInfoEl = document.createElement("div"); //creates div to hold task info and add to list item 
     taskInfoEl.className = "task-info"; //gives div a class name
-    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";//add HTML content to div - which is really cool though I don't quite understand it all yet 
+    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";//add HTML content to div - which is really cool though I don't quite understand it all yet 
 
     listItemEl.appendChild(taskInfoEl);
 
     tasksToDoEl.appendChild(listItemEl); //add entire list item to list
 
-};
+}
 
-formEl.addEventListener("submit",createTaskHandler);
+formEl.addEventListener("submit",taskFormHandler);
 
 //You can create DOM objects without editing the html directly - i.e. that is, you can do it dynamically from js. 
 
