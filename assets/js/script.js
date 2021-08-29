@@ -5,15 +5,26 @@ var createTaskHandler = function(event) {
 
     event.preventDefault();
 
-    var listItemEl = document.createElement("li");
-    listItemEl.className = "task-item";
-    listItemEl.textContent = "This is a new task.";
-    tasksToDoEl.appendChild(listItemEl);
+    var taskNameInput = document.querySelector("input[name='task-name']").value;
+
+    var taskTypeInput = document.querySelector("select[name='task-type']").value;
+
+    var listItemEl = document.createElement("li"); //creates li in ul
+    listItemEl.className = "task-item"; 
+
+    var taskInfoEl = document.createElement("div"); //creates div to hold task info and add to list item 
+    taskInfoEl.className = "task-info"; //gives div a class name
+    taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";//add HTML content to div - which is really cool though I don't quite understand it all yet 
+
+    listItemEl.appendChild(taskInfoEl);
+
+    tasksToDoEl.appendChild(listItemEl); //add entire list item to list
+
 };
 
 formEl.addEventListener("submit",createTaskHandler);
 
-
+//You can create DOM objects without editing the html directly - i.e. that is, you can do it dynamically from js. 
 
 //<script>
 // var listEL = document.querySelector("#villains");  ASSIGNS VARIABLE THE HTML ELEMENT THAT DOMINATES THE QUERYSELECTOR ARGUMENT
