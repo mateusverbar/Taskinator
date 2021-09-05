@@ -165,7 +165,7 @@ var taskButtonHandler = function(event) {
 
       var taskType = taskSelected.querySelector("span.task-type").textContent;
         document.querySelector("input[name='task-name']").value = taskName;
-        document.querySelector("select[name='task-type']").value = taskType;
+        document.querySelector("input[name='task-type']").value = taskType;
         document.querySelector("#save-task").textContent = "Save Task";
 
         formEl.setAttribute("data-task-id", taskId);
