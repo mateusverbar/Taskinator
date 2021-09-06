@@ -184,6 +184,7 @@ var taskButtonHandler = function(event) {
           }
       }
       tasks = updatedTaskArr;
+
       saveTasks()
   };
 
@@ -214,7 +215,7 @@ var saveTasks = function() {
 }
 
 var loadTasks = function() {
-    //     Gets task items from localStorage.
+    // Gets task items from localStorage.
 
     // Converts tasks from the string format back into an array of objects.
 
