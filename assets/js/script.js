@@ -16,7 +16,7 @@ var taskFormHandler = function(event) {
 
     var taskNameInput = document.querySelector("input[name='task-name']").value;
 
-    var taskTypeInput = document.querySelector("select[name='task-type']").value;
+    var taskTypeInput = document.querySelector("input[name='task-type']").value;
 
     if (!taskNameInput || !taskTypeInput) {
         alert("You need to fill out the task form!");
@@ -165,7 +165,7 @@ var taskButtonHandler = function(event) {
 
       var taskType = taskSelected.querySelector("span.task-type").textContent;
         document.querySelector("input[name='task-name']").value = taskName;
-        document.querySelector("select[name='task-type']").value = taskType;
+        document.querySelector("input[name='task-type']").value = taskType;
         document.querySelector("#save-task").textContent = "Save Task";
 
         formEl.setAttribute("data-task-id", taskId);
@@ -184,6 +184,7 @@ var taskButtonHandler = function(event) {
           }
       }
       tasks = updatedTaskArr;
+
       saveTasks()
   };
 
@@ -214,7 +215,7 @@ var saveTasks = function() {
 }
 
 var loadTasks = function() {
-    //     Gets task items from localStorage.
+    // Gets task items from localStorage.
 
     // Converts tasks from the string format back into an array of objects.
 
